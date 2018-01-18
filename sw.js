@@ -1,4 +1,4 @@
-let urls = [
+let pathes = [
   '/index.html',
   '/restaurant.html',
   '/data/restaurants.json',
@@ -9,27 +9,21 @@ let urls = [
 ];
 
 for (var i = 1; i < 11; i++) {
-  urls.push(`/restaurant.html?id=${i}`);
+  pathes.push(`/restaurant.html?id=${i}`);
 }
 
-/*
- * After service worker install, store app content in cache 'v1'
- * except for google maps.
- */
-self.addEventListener('install', function (event) {
-  event.waitUntil(
-    caches.open('v2').then(function (cache) {
-      return cache.addAll(urls);
+self.addEventListener('install', e => {
+  e.waitUntil(
+    caches.open('v1').then(function (cache) {
+      return cache.addAll(pathes);
     })
   );
 });
 
-
-// Responds to requests, first by looking in then via network
-self.addEventListener('fetch', function (event) {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request).then(response => {
+      return response || fetch(e.request);
     })
   );
 });
