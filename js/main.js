@@ -141,6 +141,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = `${restaurant.name} picture`;
   li.append(image);
 
   const name = document.createElement('h1');
@@ -158,9 +159,9 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
-  li.append(more)
+  li.append(more);
 
-  return li
+  return li;
 }
 
 /**
@@ -175,4 +176,17 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     });
     self.markers.push(marker);
   });
+}
+
+// Register service worker for offline accessbility
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(function (reg) {
+      // Successed
+      console.log('Registration succeeded. Scope is ' + reg.scope);
+    }).catch(function (error) {
+      // failed
+      console.log('Registration failed with ' + error);
+    });
 }

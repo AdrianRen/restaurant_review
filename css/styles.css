@@ -311,7 +311,6 @@ nav h1 a {
 }
 
 /*Split view for larger screens */
-
 @media screen and (min-width: 1000px) {
   #breadcrumb {
     width: 50%
@@ -345,9 +344,7 @@ nav h1 a {
   }
 }
 
-
 /* Accessible navigation headers and skip links */
-
 .offscreen {
   height: 1px;
   width: 1px;
