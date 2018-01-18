@@ -24,7 +24,7 @@ fetchNeighborhoods = () => {
       fillNeighborhoodsHTML();
     }
   });
-}
+};
 
 /**
  * Set neighborhoods HTML.
@@ -37,7 +37,7 @@ fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
     option.value = neighborhood;
     select.append(option);
   });
-}
+};
 
 /**
  * Fetch all cuisines and set their HTML.
@@ -51,7 +51,7 @@ fetchCuisines = () => {
       fillCuisinesHTML();
     }
   });
-}
+};
 
 /**
  * Set cuisines HTML.
@@ -65,7 +65,7 @@ fillCuisinesHTML = (cuisines = self.cuisines) => {
     option.value = cuisine;
     select.append(option);
   });
-}
+};
 
 /**
  * Initialize Google map, called from HTML.
@@ -80,8 +80,14 @@ window.initMap = () => {
     center: loc,
     scrollwheel: false
   });
+  google.maps.event.addListener(self.map, "tilesloaded", function () {
+    document.querySelectorAll('#map-container a').forEach(function (item) {
+      item.setAttribute('tabindex', '-1');
+    });
+  });
+
   updateRestaurants();
-}
+};
 
 /**
  * Update page and map for current restaurants.
@@ -103,8 +109,8 @@ updateRestaurants = () => {
       resetRestaurants(restaurants);
       fillRestaurantsHTML();
     }
-  })
-}
+  });
+};
 
 /**
  * Clear current restaurants, their HTML and remove their map markers.
@@ -119,7 +125,7 @@ resetRestaurants = (restaurants) => {
   self.markers.forEach(m => m.setMap(null));
   self.markers = [];
   self.restaurants = restaurants;
-}
+};
 
 /**
  * Create all restaurants HTML and add them to the webpage.
@@ -137,8 +143,8 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
-
   const image = document.createElement('img');
+
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   image.alt = `${restaurant.name} picture`;
@@ -162,7 +168,7 @@ createRestaurantHTML = (restaurant) => {
   li.append(more);
 
   return li;
-}
+};
 
 /**
  * Add markers for current restaurants to the map.
@@ -172,21 +178,20 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
     google.maps.event.addListener(marker, 'click', () => {
-      window.location.href = marker.url
+      window.location.href = marker.url;
     });
     self.markers.push(marker);
   });
-}
+};
 
 // Register service worker for offline accessbility
-
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js')
     .then(function (reg) {
       // Successed
-      console.log('Registration succeeded. Scope is ' + reg.scope);
+      console.log(`SW registration succeeded. Scope is: ${reg.scope}`);
     }).catch(function (error) {
       // failed
-      console.log('Registration failed with ' + error);
+      console.log(`SW registration failed: ${error}`);
     });
 }
