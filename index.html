@@ -16,13 +16,13 @@
     <a href="#neighborhoods-select" class="skip-link">Skip to restaurant filter</a>
     <nav>
       <h1>
-        <a href="/mws-restaurant-stage-1/">Restaurant Reviews</a>
+        <a aria-label="header Restaurant reviews" href="/mws-restaurant-stage-1/">Restaurant Reviews</a>
       </h1>
     </nav>
   </header>
 
   <main id="maincontent">
-    <section id="map-container" aria-labelledby="map-title">
+    <section id="map-container" aria-labelledby="map-title" role="application">
       <h2 id="map-title" class="offscreen">map</h2>
       <div id="map"></div>
     </section>
@@ -38,7 +38,7 @@
     </section>
     <section id="filtered-restaurants" aria-labelledby="restaurant-list-title">
         <h2 id="restaurant-list-title" class="offscreen">Restaurants list</h2>
-        <ul id="restaurants-list"></ul>
+        <ul id="restaurants-list" aria-label="restaurants"></ul>
     </section>
   </main>
 
