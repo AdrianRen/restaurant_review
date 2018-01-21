@@ -13,32 +13,28 @@
 
 <body>
   <header>
-    <a href="#neighborhoods-select" class="skip-link">Skip to restaurant filter</a>
     <nav>
       <h1>
         <a aria-label="header Restaurant reviews" href="/">Restaurant Reviews</a>
       </h1>
     </nav>
   </header>
-
+  
   <main id="maincontent">
-    <section id="map-container" aria-labelledby="map-title" role="application">
-      <h2 id="map-title" class="offscreen">map</h2>
+    <section id="map-container" role="application">
       <div id="map"></div>
     </section>
-
-    <section class="filter-options" aria-labelledby="filter-results">
-        <h2 id="filter-results">Filter Results</h2>
-        <select id="neighborhoods-select" tabindex='-1' name="neighborhoods" onchange="updateRestaurants()">
+    <section id="filter-options">
+      <div aria-label="filter options" class="filter-options">
+        <h2>Filter Options</h2>
+        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
           <option value="all">All Neighborhoods</option>
         </select>
         <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
-    </section>
-    <section id="filtered-restaurants" aria-labelledby="restaurant-list-title">
-        <h2 id="restaurant-list-title" class="offscreen">Restaurants list</h2>
-        <ul id="restaurants-list" aria-label="restaurants"></ul>
+      </div>
+      <ul id="restaurants-list" aria-label="restaurants"></ul>
     </section>
   </main>
 
