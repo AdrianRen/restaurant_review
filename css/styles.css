@@ -108,14 +108,6 @@ nav h1 a {
   text-transform: uppercase;
 }
 
-.breadcrumb {
-  background-color: #eee;
-  width: 100%;
-  height: 40px;
-  text-align: left;
-  padding-top: 10px;
-}
-
 #breadcrumb {
   padding: 10px 40px 16px;
   list-style: none;
@@ -172,7 +164,6 @@ nav h1 a {
   width: 100%;
   height: 100%;
   background-color: #3397DB;
-  align-items: center;
   text-align: center;
   padding: 10px 0 10px 0;
 }
@@ -278,7 +269,7 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 
-header {
+.inside header {
   position: fixed;
   top: 0;
   width: 100%;
@@ -297,26 +288,21 @@ header h1 {
   }
 }
 
-.inside #map-container {
-  background: blue none repeat scroll 0 0;
-  height: 70vh;
-  position: relative;
-  right: 0;
-  top: 80px;
-  width: 100%;
+#maincontent {
+  display: flex;
+  flex-direction: column;
 }
 
-.inside #map {
-  background-color: #ccc;
-  height: 100%;
-  width: 100%;
+.inside #map-container {
+  background: blue none repeat scroll 0 0;
+  padding-top: 130px;
+  height: calc(100% - 80px);
 }
 
 .inside #footer {
   bottom: 0;
-  position: fixed;
+  position: absolute;
   width: 100%;
-  margin: 0;
 }
 
 #restaurant-name {
@@ -332,15 +318,10 @@ header h1 {
 }
 
 #restaurant-img {
-  width: 60%;
-  min-width: 350px;
-  height: auto;
-  margin: auto;
+  width: 90%;
 }
-
 #restaurant-address {
   font-size: 12pt;
-  text-align: center;
 }
 
 #restaurant-cuisine {
@@ -349,29 +330,24 @@ header h1 {
   font-size: 12pt;
   font-weight: 300;
   letter-spacing: 10px;
-  margin: auto;
-  position: relative;
+  margin:0 0 20px;
   top: 10px;
   padding: 2px 0;
   text-align: center;
   text-transform: uppercase;
-  width: 60%;
-  min-width: 350px;
+  width: 90%;
 }
 
 #restaurant-container,
 #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  margin: auto;
-  display: block;
-  padding: 5px;
-  text-align: center;
+  padding: 10px 40px 30px;
+  width: 100%;
 }
 
 #reviews-container {
   padding: 30px 40px 80px;
-  clear: both;
 }
 
 #reviews-container h2 {
@@ -390,90 +366,52 @@ header h1 {
 #reviews-list li {
   background-color: #fff;
   border: 2px solid #f3f3f3;
-  border: solid 1px;
   display: block;
   list-style-type: none;
-  margin: auto;
-  margin-bottom: 20px;
+  margin: 0 0 30px;
   overflow: hidden;
-  padding: 0;
+  padding: 0 20px;
   position: relative;
-  max-width: 80%;
-  text-align: left;
+  max-width: 90%;
 }
 
 #reviews-list li p {
-  margin: 10px;
+  margin: 0 0 10px;
 }
 
 #restaurant-hours td {
   color: #666;
-  min-width: 80px;
-  max-width: 130px;
-  vertical-align: top;
 }
 
-#restaurant-hours {
-  margin: auto;
-  text-align: left;
-}
-
-#reviews-list div {
-  display: block;
-  height: 40px;
-  width: 100%;
-  margin: 0;
-  margin-bottom: 10px;
-  background-color: #252831;
-}
-
-.review-name {
-  float: left;
-  color: white;
-}
-
-.review-date {
-  float: right;
-  color: white;
-}
-
-#reviews-list li .review-rating {
-  clear: both;
-  background-color: #f4b042;
-  color: white;
-  background-clip: padding-box;
-  display: inline;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-@media screen and (min-width: 1100px) {
-  .inside #restaurant-container,
-  #reviews-container {
-    position: relative;
-    top: 70px;
-    width: 50%;
-    float: left;
-    left: 0;
-    padding: 0;
-    padding-bottom: 50px;
-    float: left top: 500px;
-  }
-  .inside #reviews-container {
-    padding-bottom: 150px;
+@media screen and (min-width: 1000px) {
+  #breadcrumb {
+    width: 50%
   }
   .inside #map-container {
-    width: 50%;
-    float: right;
-    height: 80vh;
+    background: blue none repeat scroll 0 0;
+    height: calc(100% - 80px);
     position: fixed;
-  }
-  #restaurant-hours {
+    right: 0;
+    top: 80px;
     width: 50%;
-    top: 200px;
-    left: 100px;
+    padding-top: 0;
   }
-  #restaurant-hours td {
-    max-width: 70px;
+  .inside #map {
+    background-color: #ccc;
+    height: 100%;
+    width: 100%;
+  }
+  .inside #footer {
+    width: 50%;
+  }
+  #restaurant-container {
+    padding: 140px 40px 30px;
+    width: 50%;
+  }
+  #reviews-container {
+    width: 50%;
+  }
+  #reviews-list li {
+    width: 90%;
   }
 }
