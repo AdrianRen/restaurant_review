@@ -440,8 +440,7 @@ header h1 {
     left: 0;
     padding: 0;
     padding-bottom: 50px;
-    float: left;
-    top: 500px;
+    float: left top: 500px;
   }
   .inside #reviews-container {
     padding-bottom: 150px;
