@@ -21,13 +21,10 @@ p {
   line-height: 1.5;
 }
 
-html,
 body {
   background-color: #fdfdfd;
   margin: 0;
-  padding: 0;
   position: relative;
-  overflow-x: hidden;
 }
 
 ul,
@@ -80,6 +77,8 @@ section {
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 #footer {
@@ -163,7 +162,7 @@ nav h1 a {
 /* ====================== Map ====================== */
 
 #map {
-  height: 500px;
+  height: 400px;
   width: 100%;
   background-color: #ccc;
 }
@@ -206,25 +205,37 @@ nav h1 a {
 #restaurants-list {
   background-color: #f3f3f3;
   list-style: outside none none;
-  margin: auto;
+  margin: 0;
+  padding: 30px 15px 60px;
   text-align: center;
-  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #restaurants-list li {
   background-color: #fff;
   border-radius: 10px;
   font-family: Arial, sans-serif;
-  margin: 10px;
-  min-height: 380px;
+  margin: 15px;
   padding: 0;
   text-align: center;
-  width: 300px;
-  display: inline-block;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.container {
-  padding: 10px;
+@media screen and (min-width:650px) {
+  #restaurants-list li {
+    max-width: 40%;
+  }
+}
+
+@media screen and (min-width:1000px) {
+  #restaurants-list li {
+    max-width: 30%;
+  }
 }
 
 #restaurants-list .restaurant-img {
