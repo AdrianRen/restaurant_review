@@ -329,7 +329,9 @@ header h1 {
   width: 90%;
 }
 #restaurant-address {
+  width: 90%;
   font-size: 12pt;
+  margin-left: 5%;
 }
 
 #restaurant-cuisine {
@@ -341,6 +343,7 @@ header h1 {
   text-align: center;
   text-transform: uppercase;
   width: 90%;
+  margin-left: 5%;
 }
 
 #restaurant-container,
@@ -356,6 +359,7 @@ header h1 {
 
 #reviews-container {
   padding: 30px 40px 80px;
+  margin-left: 4%;
 }
 
 #reviews-container h2 {
@@ -387,6 +391,9 @@ header h1 {
   margin: 0 0 10px;
 }
 
+#restaurant-hours {
+  margin-left: 5%;
+}
 #restaurant-hours td {
   color: #666;
 }
