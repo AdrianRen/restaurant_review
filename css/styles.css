@@ -315,13 +315,9 @@ header h1 {
   text-transform: uppercase;
   height: 100px;
   line-height: 100px;
-  margin: 15% 0 0 0;
+  margin-top: 20px;
 }
 
-/* #restaurant-img {
-  
-  width: 90%;
-} */
 #restaurant-img {
   display: block;
   margin-left: auto;
@@ -353,13 +349,13 @@ header h1 {
   padding: 10px 40px 30px;
   width: 100%;
   display: block;
-  margin: 0 2%;
-  text-align: left;
+  text-align: center;
 }
 
 #reviews-container {
   padding: 30px 40px 80px;
-  margin-left: 4%;
+  clear: both;
+  text-align: center;
 }
 
 #reviews-container h2 {
@@ -377,27 +373,68 @@ header h1 {
 
 #reviews-list li {
   background-color: #fff;
-  border: 2px solid #f3f3f3;
+  border: solid 1px;
   display: block;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   list-style-type: none;
-  margin: 0 0 30px;
+  margin: auto;
+  margin-bottom: 20px;
   overflow: hidden;
-  padding: 0 20px;
+  padding: 0;
   position: relative;
   max-width: 90%;
+  text-align: left;
 }
 
 #reviews-list li p {
-  margin: 0 0 10px;
+  margin:10px;
 }
 
 #restaurant-hours {
-  margin-left: 5%;
-}
-#restaurant-hours td {
-  color: #666;
+  margin: auto;
+  text-align: left;
 }
 
+#restaurant-hours td {
+  color: #666;
+  min-width: 80px;
+  max-width: 130px;
+  vertical-align: top;
+}
+#restaurant-hours {
+  margin: auto;
+  text-align: left;
+}
+
+#reviews-list div {
+  display: block;
+  height: 40px;
+  width: 100%;
+  margin: 0;
+  margin-bottom: 10px;
+  background-color: #252831;
+}
+
+.review-name {
+  float: left;
+  color: white;
+}
+
+.review-date {
+  float: right;
+  color: white;
+}
+
+#reviews-list li .review-rating {
+  clear: both;
+  background-color: #f4b042;
+  color: white;
+  background-clip: padding-box;
+  display: inline;
+  padding: 5px;
+  border-radius: 5px;
+}
 @media screen and (min-width: 1000px) {
   #breadcrumb {
     width: 50%

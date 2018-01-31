@@ -96,7 +96,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
  */
 fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
-  const title = document.createElement('h3');
+  const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
   container.appendChild(title);
 
@@ -116,17 +116,46 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
 /**
  * Create review HTML and add it to the webpage.
  */
+// createReviewHTML = (review) => {
+//   const li = document.createElement('li');
+//   const name = document.createElement('p');
+//   name.innerHTML = review.name;
+//   li.appendChild(name);
+
+//   const date = document.createElement('p');
+//   date.innerHTML = review.date;
+//   li.appendChild(date);
+
+//   const rating = document.createElement('p');
+//   rating.innerHTML = `Rating: ${review.rating}`;
+//   li.appendChild(rating);
+
+//   const comments = document.createElement('p');
+//   comments.innerHTML = review.comments;
+//   li.appendChild(comments);
+
+//   return li;
+// };
 createReviewHTML = (review) => {
   const li = document.createElement('li');
+  li.setAttribute('tabindex', '0');
+
+  const header = document.createElement('div');
+
   const name = document.createElement('p');
+  name.className = "review-name";
   name.innerHTML = review.name;
-  li.appendChild(name);
+  header.appendChild(name);
 
   const date = document.createElement('p');
+  date.className = "review-date";
   date.innerHTML = review.date;
-  li.appendChild(date);
+  header.appendChild(date);
+
+  li.appendChild(header);
 
   const rating = document.createElement('p');
+  rating.className = "review-rating";
   rating.innerHTML = `Rating: ${review.rating}`;
   li.appendChild(rating);
 
@@ -135,8 +164,7 @@ createReviewHTML = (review) => {
   li.appendChild(comments);
 
   return li;
-};
-
+}
 /**
  * Add restaurant name to the breadcrumb navigation menu
  */
