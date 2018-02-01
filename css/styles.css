@@ -163,7 +163,7 @@ nav h1 a {
 .filter-options {
   width: 100%;
   height: 100%;
-  background-color: #3397DB;
+  background-color: #252831;
   text-align: center;
   padding: 10px 0 10px 0;
 }
@@ -458,6 +458,9 @@ header h1 {
   }
   #restaurant-container {
     width: 50%;
+  }
+  #restaurant-name {
+    margin-top: 140px;
   }
   #reviews-container {
     width: 50%;
